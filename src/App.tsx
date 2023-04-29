@@ -1,8 +1,24 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { useEffect } from 'react'
+import './App.css'
+import logo from './logo.svg'
 
 function App() {
+  const authenticate = () => new Promise((resolve) => setTimeout(resolve, 2000)) // 2 seconds
+
+  useEffect(() => {
+    authenticate().then(() => {
+      const ele = document.getElementById('ipl-progress-indicator')
+      if (ele) {
+        // fade out
+        ele.classList.add('available')
+        setTimeout(() => {
+          // remove from DOM
+          ele.outerHTML = ''
+        }, 2000)
+      }
+    })
+  }, [])
+
   return (
     <div className="App">
       <header className="App-header">
@@ -20,7 +36,7 @@ function App() {
         </a>
       </header>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App

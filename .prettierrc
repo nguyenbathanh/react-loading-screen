@@ -1,0 +1,7 @@
+{
+  "singleQuote": true,
+  "trailingComma": "none",
+  "semi": false,
+  "arrowParens": "always",
+  "organizeImportsSkipDestructiveCodeActions": false
+}
